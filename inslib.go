@@ -113,7 +113,9 @@ func Download(node *Node, dir string, IsSplitDay bool, names ...string) (fullnam
 	if !IsExist(dir + "/" + fulldir) {
 		Mkdir(dir + "/" + fulldir)
 	}
-	Get(fileUrli).ToFile(dir + "/" + fullname)
+	if !IsExist(path) {
+		Get(fileUrli).ToFile(dir + "/" + fullname)
+	}
 	b = true
 	return fullname, b
 }
