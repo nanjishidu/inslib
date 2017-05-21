@@ -107,7 +107,7 @@ func Download(node *Node, dir string, IsSplitDay bool, names ...string) (fullnam
 	}
 	fulldir := strings.Join(names, "/") + "/" + fileType
 	if IsSplitDay {
-		fulldir = "/" + time.Unix(node.Date, 0).Format("2006-01-02")
+		fulldir += "/" + time.Unix(node.Date, 0).Format("2006-01-02")
 	}
 	fullname = fulldir + "/" + GetFilenameByUrl(fileUrli)
 	if !IsExist(dir + "/" + fulldir) {
